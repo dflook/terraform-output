@@ -11,7 +11,7 @@ inputs:
     required: false
     default: default
   backend_config:
-    description: Comma separated list of backend configs to set, e.g. 'foo=bar'
+    description: List of backend configs to set, one per line
     required: false
   backend_config_file:
     description: Path to a backend config file
@@ -19,7 +19,7 @@ inputs:
 
 runs:
   using: docker
-  image: docker://danielflook/terraform-github-actions:v1.10.0
+  image: docker://danielflook/terraform-github-actions@sha256:4249a9c33cb8c97461daf001145885c17fdde1ba297dbd1d6c11b6f37c3b1eb9
   entrypoint: /entrypoints/output.sh
 
 branding:
