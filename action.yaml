@@ -1,28 +1,30 @@
 name: terraform-output
-description: Set the action outputs from Terraform configuration outputs
+description: Retrieve the root-level outputs from a Terraform configuration.
 author: Daniel Flook
 
 inputs:
   path:
-    description: Path to the Terraform configuration
+    description: The path to the Terraform root module directory.
     required: false
-    default: .
+    default: "."
   workspace:
-    description: Name of the Terraform workspace
+    description: Terraform workspace to get outputs from
     required: false
-    default: default
+    default: "default"
   backend_config:
-    description: List of backend config values to set, one per line
+    description: List of Terraform backend config values, one per line.
     required: false
     default: ""
   backend_config_file:
-    description: Path to a backend config file
+    description: |
+      List of Terraform backend config files to use, one per line.
+      Paths should be relative to the GitHub Actions workspace
     required: false
     default: ""
 
 runs:
   using: docker
-  image: docker://danielflook/terraform-github-actions@sha256:43139c747c6d59c3f83bda22afaff9e331fc959ae1e12769fe1b872ecbd8cdd4
+  image: docker://danielflook/terraform-github-actions@sha256:7aef5fd3c9c6b005c5fe0a77b3065e5a2eeed4650993041a54c25013761237f7
   entrypoint: /entrypoints/output.sh
 
 branding:
