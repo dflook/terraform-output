@@ -156,7 +156,7 @@ Retrieve the root-level outputs from a Terraform configuration.
 
   The runtime environment for these actions is subject to change in minor version releases. If using this environment variable, specify the minor version of the action to use.
 
-  The runtime image is currently based on `debian:bullseye`, with the command run using `bash -xeo pipefail`.
+  The runtime image is currently based on `debian:bookworm`, with the command run using `bash -xeo pipefail`.
 
   For example:
 
@@ -191,7 +191,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Get outputs
-        uses: dflook/terraform-output@v1
+        uses: dflook/terraform-output@v2
         id: tf-outputs
         with:
           path: my-terraform-config
@@ -227,7 +227,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Get outputs
-        uses: dflook/terraform-output@v1
+        uses: dflook/terraform-output@v2
         id: tf-outputs
         with:
           path: my-terraform-config
